@@ -12,7 +12,7 @@ const app = express();
 // ✅ Allow only specific origins
 const allowedOrigins = [
   'https://rent-my-space.vercel.app',
-  'https://rent-my-space-541k.vercel.app', // <-- Replace with your actual frontend domain
+  'https://rent-my-space-541k-a7h0jhjnp-vikas-ks-projects.vercel.app', // <-- Replace with your actual frontend domain
 ];
 
 app.use(cors({
