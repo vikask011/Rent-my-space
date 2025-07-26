@@ -2,30 +2,44 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import spaceRoutes from './routes/spaceRoutes.js'; // ✅ Existing space routes
-import paymentRoutes from './routes/paymentRoutes.js'; // ✅ Stripe route
-import authRoutes from './routes/authRoutes.js'; // ✅ Add this line
+import spaceRoutes from './routes/spaceRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 dotenv.config();
-
 const app = express();
-app.use(cors());
+
+// ✅ Allow only specific origins
+const allowedOrigins = [
+  'https://rent-my-space.vercel.app',
+  'https://rent-my-space-541k.vercel.app', // <-- Replace with your actual frontend domain
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 app.use(express.json());
 
-// MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error('MongoDB connection failed:', err));
+// ✅ MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.error('MongoDB connection failed:', err));
 
-// ✅ Use Routes
+// ✅ Routes
 app.use('/api/spaces', spaceRoutes);
-app.use('/api/payment', paymentRoutes); // ✅ Stripe
-app.use('/api/auth', authRoutes); // ✅ Google Auth
+app.use('/api/payment', paymentRoutes);
+app.use('/api/auth', authRoutes);
 
-// Start Server
+// ✅ Optional: Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('🔥 Server error:', err.stack);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
