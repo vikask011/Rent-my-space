@@ -8,7 +8,7 @@ const BookedSlots = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/bookings/user"); // Replace with actual API
+        const res = await axios.get("https://rent-my-space.vercel.app/api/bookings/user"); // Replace with actual API
         setBookings(res.data);
       } catch (err) {
         console.error("Failed to fetch bookings", err);

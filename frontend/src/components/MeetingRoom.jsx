@@ -8,7 +8,7 @@ const MeetingRoom = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/spaces/category/meetingroom")
+      .get("https://rent-my-space.vercel.app/api/spaces/category/meetingroom")
       .then((res) => {
         setMeetingRooms(res.data);
       })

@@ -44,7 +44,7 @@ const AllCategories = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/spaces");
+        const res = await axios.get("https://rent-my-space.vercel.app/api/spaces");
         setListings(res.data);
       } catch (error) {
         console.error("Error fetching listings:", error);

@@ -9,7 +9,7 @@ const ArtStudio = () => {
   useEffect(() => {
     const fetchArtStudios = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/spaces/category/artstudio");
+        const res = await axios.get("https://rent-my-space.vercel.app/api/spaces/category/artstudio");
         setArtStudios(res.data);
       } catch (error) {
         console.error("Failed to fetch art studios:", error);

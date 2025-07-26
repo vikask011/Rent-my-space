@@ -47,7 +47,7 @@ const AddListing = () => {
       setSuccess(false);
       setError("");
 
-      const res = await axios.post("http://localhost:5000/api/spaces", payload, {
+      const res = await axios.post("https://rent-my-space.vercel.app/api/spaces", payload, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

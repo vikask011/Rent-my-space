@@ -9,7 +9,7 @@ const Kitchen = () => {
   useEffect(() => {
     const fetchKitchenListings = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/spaces/category/kitchen");
+        const res = await axios.get("https://rent-my-space.vercel.app/api/spaces/category/kitchen");
         setKitchenSpaces(res.data);
       } catch (error) {
         console.error("Error fetching kitchen listings:", error);

@@ -39,7 +39,7 @@ const Profile = () => {
       try {
         const token = user.token || localStorage.getItem("token");
         const res = await axios.put(
-          "http://localhost:5000/api/auth/profile",
+          "https://rent-my-space.vercel.app/api/auth/profile",
           {
             email: user.email,
             ...customData,

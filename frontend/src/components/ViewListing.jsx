@@ -7,7 +7,7 @@ const ViewListing = () => {
 
   const fetchListings = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/spaces");
+      const res = await axios.get("https://rent-my-space.vercel.app/api/spaces");
       setListings(res.data);
       setLoading(false);
     } catch (err) {
@@ -25,7 +25,7 @@ const ViewListing = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/spaces/${id}`);
+      await axios.delete(`https://rent-my-space.vercel.app/api/spaces/${id}`);
       setListings((prev) => prev.filter((listing) => listing._id !== id));
     } catch (err) {
       console.error("Error deleting listing:", err);

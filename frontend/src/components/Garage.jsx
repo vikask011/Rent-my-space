@@ -10,7 +10,7 @@ const Garage = () => {
   useEffect(() => {
     // Fetch garage spaces from backend
     axios
-      .get("http://localhost:5000/api/spaces/category/garage") // make sure "garage" matches category
+      .get("https://rent-my-space.vercel.app/api/spaces/category/garage") // make sure "garage" matches category
       .then((res) => setGarages(res.data))
       .catch((err) => console.error("Failed to fetch garages:", err));
   }, []);

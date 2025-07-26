@@ -15,7 +15,7 @@ const DetailsPage = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/payment/create-checkout-session", {
+      const response = await axios.post("https://rent-my-space.vercel.app/api/payment/create-checkout-session", {
         title: listing.title,
         price: listing.price,
         date: selectedDate, // You can log/store this later on backend

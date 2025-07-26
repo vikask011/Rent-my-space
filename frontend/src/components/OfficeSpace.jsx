@@ -9,7 +9,7 @@ const OfficeSpace = () => {
   useEffect(() => {
     const fetchOfficeSpaces = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/spaces/category/officespace");
+        const res = await axios.get("https://rent-my-space.vercel.app/api/spaces/category/officespace");
         setOfficeSpaces(res.data);
       } catch (error) {
         console.error("Error fetching office spaces:", error);

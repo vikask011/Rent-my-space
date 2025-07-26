@@ -10,7 +10,7 @@ const StudyRoom = () => {
   useEffect(() => {
     const fetchStudyRooms = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/spaces/category/studyroom");
+        const res = await axios.get("https://rent-my-space.vercel.app/api/spaces/category/studyroom");
         setSpaces(res.data);
       } catch (error) {
         console.error("Error fetching study rooms:", error);
