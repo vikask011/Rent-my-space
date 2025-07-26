@@ -1,0 +1,54 @@
+// src/Components/StudyRoom.jsx
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const StudyRoom = () => {
+  const [spaces, setSpaces] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchStudyRooms = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/spaces/category/studyroom");
+        setSpaces(res.data);
+      } catch (error) {
+        console.error("Error fetching study rooms:", error);
+      }
+    };
+
+    fetchStudyRooms();
+  }, []);
+
+  const handleViewDetails = (listing) => {
+    navigate(`/details/${listing._id}`, { state: { listing } });
+  };
+
+  return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center">Available Study Rooms</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {spaces.map((room) => (
+          <div
+            key={room._id}
+            className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition hover:shadow-xl"
+            onClick={() => handleViewDetails(room)}
+          >
+            <img
+              src={room.imageUrl}
+              alt={room.title}
+              className="h-48 w-full object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-xl font-semibold">{room.title}</h2>
+              <p className="text-gray-600 text-sm mt-2">{room.description}</p>
+              <p className="text-gray-800 font-bold mt-2">₹{room.price}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default StudyRoom;
