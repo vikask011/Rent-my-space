@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Info */}
         <div>
-          <h2 className="text-3xl font-bold mb-3 text-gray-900">SpaceRent</h2>
+          <h2 className="text-3xl font-bold mb-3 text-gray-900">Rent-My-Space</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             Discover and rent inspiring spaces curated just for you – from work areas to events and beyond.
           </p>
@@ -74,7 +74,7 @@ const Footer = () => {
 
       {/* Footer Bottom Line */}
       <div className="text-center text-sm text-gray-500 mt-10 border-t pt-4">
-        © {new Date().getFullYear()} <strong>SpaceRent</strong>. All rights reserved.
+        © {new Date().getFullYear()} <strong>Rent-My-Space</strong>. All rights reserved.
       </div>
     </footer>
   );
