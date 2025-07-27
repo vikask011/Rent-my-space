@@ -31,7 +31,7 @@
 - Axios
 - Context API for global state management
 
-### ⚙ Backend
+### Backend
 - Node.js + Express.js
 - MongoDB + Mongoose
 - Stripe (Payment Integration)
@@ -48,7 +48,7 @@
 
 ---
 
-## 🗄 MongoDB Database
+## MongoDB Database
 
 - All user spaces are stored in MongoDB using **Mongoose models**.
 - Collections include:
